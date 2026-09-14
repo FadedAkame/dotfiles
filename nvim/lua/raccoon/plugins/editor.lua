@@ -26,11 +26,7 @@ vim.keymap.set('n', '<leader>fb', fzf.buffers)
 
 require('nvim-autopairs').setup()
 
-require('bufferline').setup({
-    options = {
-        separator_style = 'slant',
-    },
-})
+require('bufferline').setup()
 
 for i = 1, 9 do
     vim.keymap.set('n', '<leader>' .. i, function()
