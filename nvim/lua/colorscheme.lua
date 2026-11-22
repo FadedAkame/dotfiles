@@ -1,5 +1,4 @@
 -- Rainy Night Monochrome
-
 local p = {
     bg     = '#080a0a',
     fg     = '#c5c9c8',

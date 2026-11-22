@@ -15,7 +15,6 @@ alias remove-aur="yay -Rns"
 alias check-aur="yay -Ss"
 alias update-aur="yay -Syu"
 
-alias resource="source ~/.zshrc"
 alias ff="reset && fastfetch --logo-type kitty-direct"
 
 eval "$(zoxide init zsh)"

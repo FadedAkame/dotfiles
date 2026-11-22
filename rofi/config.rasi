@@ -1,5 +1,3 @@
-
-
 configuration {
     modes: "combi";
     combi-modes: "window,run,drun";
@@ -206,4 +204,3 @@ textbox-prompt-colon {
     str: "";
     text-color: inherit;
 }
-
