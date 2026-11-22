@@ -1,0 +1,19 @@
+*
+
+# Whitelist
+!.gitignore
+
+!fastfetch/
+!fastfetch/**
+!hypr/
+!hypr/**
+!kitty/
+!kitty/**
+!nvim/
+!nvim/**
+!rofi/
+!rofi/**
+!waybar/
+!waybar/**
+!starship.toml
+!.zshrc

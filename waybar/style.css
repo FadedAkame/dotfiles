@@ -1,0 +1,67 @@
+@define-color bg      #080a0a;
+@define-color fg      #c5c9c8;
+@define-color surface #101313;
+@define-color border  #45504c;
+@define-color accent  #6e7f8a;
+@define-color warn    #806f75;
+
+* {
+    font-family: "Iosevka Nerd Font Propo";
+    font-size: 18px;
+    padding: 0;
+    margin: 0;
+    min-height: 0;
+}
+
+window#waybar {
+    background-color: rgba(20, 20, 20, 0);
+    color: @fg;
+}
+
+/* Islands */
+.modules-left,
+.modules-center,
+.modules-right {
+    background-color: alpha(@surface, 0.6);
+    border: 1px solid @border;
+    border-radius: 12px;
+}
+
+.modules-left {
+    margin: 4px 0 2px 6px;
+}
+
+.modules-center {
+    margin: 4px 0 2px;
+}
+
+.modules-right {
+    margin: 4px 6px 2px 0;
+}
+
+/* Module spacing */
+#cpu,
+#custom-gpu,
+#memory,
+#clock,
+#pulseaudio,
+#custom-power {
+    padding: 0 20px;
+    color: @fg;
+}
+
+#clock {
+    font-weight: 600;
+}
+
+#pulseaudio {
+    color: @fg;
+}
+
+#custom-power {
+    color: @warn;
+}
+
+#custom-power:hover {
+    color: @fg;
+}
