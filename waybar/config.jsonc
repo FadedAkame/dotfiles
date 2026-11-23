@@ -1,45 +1,41 @@
 {
     "layer": "top",
     "position": "top",
-    "height": 34,
-    "spacing": 0,
-    "margin-top": 6,
-    "margin-left": 10,
-    "margin-right": 10,
+    "height": 30,
+    "spacing": 4,
 
-    "modules-left": ["group/system"],
-    "modules-center": ["clock"],
-    "modules-right": ["group/right"],
+    "modules-left": [
+        "custom/arch",
+        "custom/sep",
+        "ext/workspaces"
+    ],
+    "modules-center": [
+        "clock"
+    ],
+    "modules-right": [
+        "pulseaudio",
+        "custom/sep",
+        "cpu",
+        "custom/sep",
+        "custom/gpu",
+        "custom/sep",
+        "memory",
+        "custom/sep",
+        "custom/power"
+    ],
 
-    "group/system": {
-        "orientation": "horizontal",
-        "modules": ["cpu", "custom/gpu", "memory"]
-    },
-    "group/right": {
-        "orientation": "horizontal",
-        "modules": ["pulseaudio", "custom/power"]
-    },
-
-    "cpu": {
-        "format": "CPU: {usage}%",
-        "interval": 2,
-        "tooltip": false
-    },
-    "custom/gpu": {
-        "exec": "nvidia-smi --query-gpu=utilization.gpu --format=csv,noheader,nounits",
-        "format": "GPU: {}%",
-        "interval": 2,
-        "tooltip": false
-    },
-    "memory": {
-        "format": "RAM: {}%",
-        "interval": 2,
-        "tooltip": false
+    "ext/workspaces": {
+        "disable-scroll": true,
+        "all-outputs": true,
+        "warp-on-scroll": false,
+        "format": "{name}",
+        "persistent-workspaces": {
+            "*": 9
+        }
     },
 
-    "clock": {
-        "format": "{:%H:%M}",
-        "interval": 10,
+    "custom/arch": {
+        "format": "󰣇",
         "tooltip": false
     },
 
@@ -50,10 +46,43 @@
         "on-click": "pactl set-sink-mute @DEFAULT_SINK@ toggle",
         "tooltip": false
     },
+
+    "cpu": {
+        "format": "CPU: {usage}%",
+        "interval": 2,
+        "tooltip": false
+    },
+
+    "custom/gpu": {
+        "exec": "nvidia-smi --query-gpu=utilization.gpu --format=csv,noheader,nounits",
+        "format": "GPU: {}%",
+        "interval": 2,
+        "tooltip": false
+    },
+
+    "memory": {
+        "format": "RAM: {}%",
+        "interval": 2,
+        "tooltip": false
+    },
+
+    "clock": {
+        "format": "{:%H:%M}",
+        "format-alt": "{:%Y-%m-%d}",
+        "interval": 10,
+        "tooltip": false
+    },
+
     "custom/power": {
         "format": "⏻",
         "tooltip-format": "Left click: Reboot\nRight click: Shutdown",
         "on-click": "systemctl reboot",
         "on-click-right": "systemctl poweroff"
+    },
+
+    "custom/sep": {
+        "format": "|",
+        "interval": "once",
+        "tooltip": false
     }
 }

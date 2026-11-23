@@ -1,65 +1,119 @@
-@define-color bg      #080a0a;
-@define-color fg      #c5c9c8;
-@define-color surface #101313;
-@define-color border  #45504c;
-@define-color accent  #6e7f8a;
-@define-color warn    #806f75;
+@define-color bg    #080a0a;
+@define-color fg    #c5c9c8;
+@define-color blk   #25282a;
+@define-color red   #806f75;
+@define-color grn   #718276;
+@define-color ylw   #8a8b72;
+@define-color blu   #6e7f8a;
+@define-color mag   #7b7180;
+@define-color cyn   #788b8a;
+@define-color brblk #45504c;
+@define-color white #c5c9c8;
 
 * {
-    font-family: "Iosevka Nerd Font Propo";
+    font-family: "Iosevka Nerd Font Propo", monospace;
     font-size: 18px;
+    font-weight: bold;
+    border: none;
+    border-radius: 0;
     padding: 0;
     margin: 0;
     min-height: 0;
 }
 
 window#waybar {
-    background-color: rgba(20, 20, 20, 0);
+    background-color: @bg;
     color: @fg;
-}
-
-/* Islands */
-.modules-left,
-.modules-center,
-.modules-right {
-    background-color: alpha(@surface, 0.6);
-    border: 1px solid @border;
-    border-radius: 12px;
 }
 
 .modules-left {
-    margin: 4px 0 2px 6px;
-}
-
-.modules-center {
-    margin: 4px 0 2px;
+    padding-left: 20px;
 }
 
 .modules-right {
-    margin: 4px 6px 2px 0;
+    padding-right: 20px;
 }
 
-/* Module spacing */
-#cpu,
-#custom-gpu,
-#memory,
+/* Workspaces */
+#workspaces button {
+    padding: 0 6px;
+    color: @cyn;
+    background: transparent;
+    border-bottom: 3px solid @bg;
+}
+
+#workspaces button.active {
+    color: @cyn;
+    border-bottom: 3px solid @mag;
+}
+
+#workspaces button.empty {
+    color: @white;
+}
+
+#workspaces button.empty.active {
+    color: @cyn;
+    border-bottom: 3px solid @mag;
+}
+
+#workspaces button.urgent {
+    background-color: @red;
+}
+
+button:hover {
+    background: inherit;
+    box-shadow: inset 0 -3px @fg;
+}
+
+/* Shared module spacing */
 #clock,
+#custom-sep,
+#custom-gpu,
+#cpu,
+#memory,
 #pulseaudio,
 #custom-power {
-    padding: 0 20px;
-    color: @fg;
+    padding: 0 8px;
+    color: @white;
 }
 
-#clock {
-    font-weight: 600;
+#custom-sep {
+    color: @brblk;
+}
+
+/* Per-module colors */
+#custom-arch {
+    font-size: 20px;
+    color: @grn;
+    padding: 0 8px;
 }
 
 #pulseaudio {
-    color: @fg;
+    color: @mag;
+}
+
+#pulseaudio.muted {
+    color: @red;
+}
+
+#cpu {
+    color: @grn;
+}
+
+#custom-gpu {
+    color: @blu;
+}
+
+#memory {
+    color: @mag;
+}
+
+#clock {
+    color: @cyn;
 }
 
 #custom-power {
-    color: @warn;
+    color: @red;
 }
 
 #custom-power:hover {
